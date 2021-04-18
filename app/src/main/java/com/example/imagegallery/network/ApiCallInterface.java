@@ -1,4 +1,4 @@
-package com.example.imagegallery;
+package com.example.imagegallery.network;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

@@ -1,4 +1,4 @@
-package com.example.imagegallery.adapters;
+package com.example.imagegallery.view.adapters;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -18,17 +18,22 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.imagegallery.R;
+import com.example.imagegallery.model.ImageModel;
 
 import java.util.List;
 
 public class GalleryImageAdapter extends RecyclerView.Adapter<GalleryImageAdapter.ImageViewHolder> {
 
     Activity activity;
-    List<String> url_list;
+    List<ImageModel> url_list;
 
-    public GalleryImageAdapter(Activity activity, List<String> url_list){
+    public GalleryImageAdapter(Activity activity, List<ImageModel> url_list){
         this.activity = activity;
         this.url_list = url_list;
+    }
+    public void setUrl_list(List<ImageModel> url_list) {
+        this.url_list = url_list;
+        notifyDataSetChanged();
     }
     @NonNull
     @Override
@@ -39,7 +44,7 @@ public class GalleryImageAdapter extends RecyclerView.Adapter<GalleryImageAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        String currentImage = url_list.get(position);
+        String currentImage = url_list.get(position).getUrl_s();
         ImageView imageView = holder.imageView;
         ProgressBar progressBar = holder.progressBar;
         Glide.with(activity).load(currentImage).listener(new RequestListener<Drawable>() {
@@ -58,7 +63,10 @@ public class GalleryImageAdapter extends RecyclerView.Adapter<GalleryImageAdapte
 
     @Override
     public int getItemCount() {
-        return url_list.size() ;
+        if (this.url_list != null)
+            return url_list.size() ;
+        return 0;
+
     }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder{
