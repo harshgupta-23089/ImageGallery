@@ -18,7 +18,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.imagegallery.R;
-import com.example.imagegallery.model.ImageModel;
+import com.example.imagegallery.repository.model.ImageModel;
 
 import java.util.List;
 

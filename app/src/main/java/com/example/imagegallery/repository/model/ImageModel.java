@@ -1,4 +1,4 @@
-package com.example.imagegallery.model;
+package com.example.imagegallery.repository.model;
 
 public class ImageModel {
     private  String url_s;

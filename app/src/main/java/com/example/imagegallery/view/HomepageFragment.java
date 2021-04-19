@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.imagegallery.R;
-import com.example.imagegallery.model.ImageModel;
+import com.example.imagegallery.repository.model.ImageModel;
 import com.example.imagegallery.view.adapters.GalleryImageAdapter;
 import com.example.imagegallery.viewmodel.ImageViewModel;
 
@@ -50,7 +50,6 @@ public class HomepageFragment extends Fragment {
 
             }
         });
-        viewModel.makeApiCall();
 
         return view;
     }
